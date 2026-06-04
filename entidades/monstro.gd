@@ -13,7 +13,7 @@ extends CharacterBody3D
 @export var patrol_wait_time: float = 3.0
 @export var update_interval: float = 0.2
  
-const VIEW_ANGLE: float = 300.0
+const VIEW_ANGLE: float = 200.0
 const SMOOTHING_FACTOR = 1.0
  
 
