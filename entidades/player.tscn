@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cbwfr0t3kkub"]
+
+[ext_resource type="Script" uid="uid://b3u32uk1sn3nc" path="res://scripts/player.gd" id="1_le3lr"]
+[ext_resource type="PackedScene" uid="uid://ckdkncpqciw2c" path="res://entidades/capacete1.glb" id="2_11m8g"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_le3lr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu0dc"]
+radius = 0.68408203
+height = 2.302002
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_le3lr"]
+
+[node name="player" type="CharacterBody3D" unique_id=1609799386]
+script = ExtResource("1_le3lr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=522515393]
+transform = Transform3D(0.8588976, 0, 0, 0, 1, 0, 0, 0, 0.82142955, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_le3lr")
+
+[node name="colisao" type="CollisionShape3D" parent="." unique_id=1960154470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.151001, 0)
+shape = SubResource("CapsuleShape3D_iu0dc")
+
+[node name="cabeca" type="Node3D" parent="." unique_id=1860966498]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 2.78207, 0)
+
+[node name="camera" type="Camera3D" parent="cabeca" unique_id=571111937]
+
+[node name="RayCast3D" type="RayCast3D" parent="cabeca/camera" unique_id=578152601]
+transform = Transform3D(-1.4075067e-07, 0, 3.22, 0, 3.22, 0, -3.22, 0, -1.4075067e-07, 0, 0, -0.402)
+target_position = Vector3(4, 0, 0)
+collide_with_areas = true
+
+[node name="capacete1" parent="cabeca/camera" unique_id=1427062702 instance=ExtResource("2_11m8g")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4824912e-08, -0.17472744, -0.5679278)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="cabeca/camera" unique_id=1369353265]
+transform = Transform3D(-1.6420282e-15, -1, -3.5527137e-15, 1, -1.642028e-15, -4.371139e-08, 4.371139e-08, -3.5527137e-15, 1, -2.1301588e-08, -0.43529677, -0.48732352)
+visible = false
+spot_range = 8.909
+spot_attenuation = -0.58
+spot_angle = 32.49
+spot_angle_attenuation = 2.9281712
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=990502005]
+transform = Transform3D(-1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0, 3, 5.391594, 2.5103207, 0)
+visible = false
+mesh = SubResource("PlaneMesh_le3lr")

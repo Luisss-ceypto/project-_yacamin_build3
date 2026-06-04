@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c2qo7u1227x13"]
+
+[ext_resource type="Texture2D" uid="uid://dpvxjnoib1t8o" path="res://assets/bau e itens/tanqueoxigenio_TANQUE OXIGENIO.png" id="1_upy46"]
+[ext_resource type="PackedScene" uid="uid://cme4rtvanvi5m" path="res://assets/bau e itens/tanqueoxigenio.glb" id="2_v2ycy"]
+[ext_resource type="Script" uid="uid://bqe0io0qgps3k" path="res://scripts/itemdata.gd" id="3_j4xx2"]
+
+[resource]
+script = ExtResource("3_j4xx2")
+nome_item = "tanque de oxigenio"
+icon = ExtResource("1_upy46")
+mesh_scene = ExtResource("2_v2ycy")
+metadata/_custom_type_script = "uid://bqe0io0qgps3k"

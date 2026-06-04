@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://civwwegatuy15"]
+
+[ext_resource type="Script" uid="uid://1xl8csmp4oj" path="res://entidades/inventario.gd" id="1_iji4m"]
+[ext_resource type="Script" uid="uid://p0wmo1ygjg2v" path="res://entidades/barra.gd" id="2_6bomq"]
+[ext_resource type="PackedScene" uid="uid://brvh3uvafnxme" path="res://entidades/slot.tscn" id="2_mmrd3"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mmrd3"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_6bomq"]
+events = [SubResource("InputEventKey_mmrd3")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_qfwjq"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_uqoss"]
+events = [SubResource("InputEventKey_qfwjq")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rbakr"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_jg4av"]
+events = [SubResource("InputEventKey_rbakr")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_fwj12"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_qnj2p"]
+events = [SubResource("InputEventKey_fwj12")]
+
+[node name="inventario" type="Node" unique_id=1912035392]
+script = ExtResource("1_iji4m")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=297591796]
+
+[node name="barra" type="HBoxContainer" parent="ui" unique_id=223694195]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_6bomq")
+
+[node name="slot" parent="ui/barra" unique_id=1327586487 instance=ExtResource("2_mmrd3")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_6bomq")
+
+[node name="slot2" parent="ui/barra" unique_id=1549957960 instance=ExtResource("2_mmrd3")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_uqoss")
+
+[node name="slot3" parent="ui/barra" unique_id=1882146716 instance=ExtResource("2_mmrd3")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_jg4av")
+
+[node name="slot4" parent="ui/barra" unique_id=1332076316 instance=ExtResource("2_mmrd3")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_qnj2p")

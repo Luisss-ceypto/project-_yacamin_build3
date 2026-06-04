@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dgbqupuegf7o3"]
+
+[ext_resource type="PackedScene" uid="uid://cbwfr0t3kkub" path="res://entidades/player.tscn" id="1_cgych"]
+[ext_resource type="Script" uid="uid://8rjfvndcba1" path="res://scripts/dia_noite.gd" id="3_282mr"]
+[ext_resource type="Script" uid="uid://euhqaqpmrd1m" path="res://addons/zylann.hterrain/hterrain.gd" id="4_imtn8"]
+[ext_resource type="Resource" uid="uid://dxxfriov5r6cd" path="res://terrenoBase/data.hterrain" id="5_tvdyi"]
+[ext_resource type="Script" uid="uid://ck31yb4738nyv" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_h8plj"]
+[ext_resource type="Texture2D" uid="uid://bicntixd0egu4" path="res://sprites/terrenoTexturaTeste/Rock031_1K-PNG/Rock031_1K-PNG_Color.png" id="6_tvdyi"]
+[ext_resource type="Texture2D" uid="uid://t4xb377b3cim" path="res://sprites/terrenoTexturaTeste/Rock031_1K-PNG/Rock031_1K-PNG_NormalDX.png" id="7_h8plj"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_282mr"]
+
+[sub_resource type="Sky" id="Sky_j4q8l"]
+sky_material = SubResource("PhysicalSkyMaterial_282mr")
+
+[sub_resource type="Environment" id="Environment_nc3pr"]
+background_mode = 2
+background_energy_multiplier = 1.62
+sky = SubResource("Sky_j4q8l")
+sky_custom_fov = 79.9
+tonemap_mode = 2
+
+[sub_resource type="Resource" id="Resource_4hro6"]
+script = ExtResource("6_h8plj")
+mode = 0
+textures = [[ExtResource("6_tvdyi"), null, null], [ExtResource("7_h8plj"), null, null]]
+
+[node name="cenaDeTestes" type="Node3D" unique_id=2088435429]
+
+[node name="player" parent="." unique_id=1609799386 instance=ExtResource("1_cgych")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189.13135, -28.108057, -44.08396)
+
+[node name="environment" type="Node" parent="." unique_id=960681403]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment" unique_id=1088715062]
+environment = SubResource("Environment_nc3pr")
+
+[node name="luz_Container" type="Node3D" parent="environment" unique_id=9159933]
+transform = Transform3D(-4.371139e-08, -1, 0, -1, 4.371139e-08, 8.742278e-08, -8.742278e-08, 3.821371e-15, -1, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment/luz_Container" unique_id=636099392]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 5.19
+shadow_enabled = true
+
+[node name="DiaNoite" type="Node" parent="environment" unique_id=1980713912 node_paths=PackedStringArray("sun_light", "world_environment", "label")]
+script = ExtResource("3_282mr")
+sun_light = NodePath("../luz_Container/DirectionalLight3D")
+world_environment = NodePath("../WorldEnvironment")
+dia_duracao = 144.0
+label = NodePath("DiaNoiteLabel")
+tempo_dia = 6.0
+
+[node name="DiaNoiteLabel" type="Label" parent="environment/DiaNoite" unique_id=1035881774]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HTerrain" type="Node3D" parent="." unique_id=284850422]
+script = ExtResource("4_imtn8")
+centered = true
+_terrain_data = ExtResource("5_tvdyi")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_4hro6")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = Vector4(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://euhqaqpmrd1m"
