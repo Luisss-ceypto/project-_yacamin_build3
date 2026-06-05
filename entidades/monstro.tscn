@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bqe1jx7l812jn" path="res://entidades/monstro2.glb" id="1_xgis7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgis7"]
-radius = 3.2231445
-height = 15.304077
+radius = 2.5454102
+height = 15.161316
 
 [sub_resource type="Animation" id="Animation_7mlrj"]
 resource_name = "idle"
@@ -796,7 +796,7 @@ script = ExtResource("1_fitgf")
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 0, 3.184486)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1300306919]
-transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, 0, 2.5576155, 1.7113457)
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, -6.2402914e-09, 2.5576155, 1.7827263)
 shape = SubResource("CapsuleShape3D_xgis7")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1702198789]
